@@ -1,0 +1,16 @@
+﻿@model DeviceShop.Core.Entities.DeviceDto
+
+<div class="row">
+    <div class="card">
+        <img class="card-img-top" src="@Model.ImageUrl" alt="Card image" style="height:18em;">
+        <div class="card-body min">
+            <h6 class="card-title">@Model.Name</h6>
+            <p class="card-text">Short description</p>
+            <a href="Category/Details?id=@Model.Id" class="btn btn-primary float-left">View</a>
+            <span class="float-right font-weight-bold">
+                <span>@Model.Currency</span>
+                <span>@Model.Price.ToString("N2")</span>
+            </span>
+        </div>
+    </div>
+</div>

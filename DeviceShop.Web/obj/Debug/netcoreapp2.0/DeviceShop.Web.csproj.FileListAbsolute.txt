@@ -1,0 +1,14 @@
+D:\Projects\DeviceShop\DeviceShop.Web\bin\Debug\netcoreapp2.0\DeviceShop.Web.deps.json
+D:\Projects\DeviceShop\DeviceShop.Web\bin\Debug\netcoreapp2.0\DeviceShop.Web.runtimeconfig.json
+D:\Projects\DeviceShop\DeviceShop.Web\bin\Debug\netcoreapp2.0\DeviceShop.Web.runtimeconfig.dev.json
+D:\Projects\DeviceShop\DeviceShop.Web\bin\Debug\netcoreapp2.0\DeviceShop.Web.dll
+D:\Projects\DeviceShop\DeviceShop.Web\bin\Debug\netcoreapp2.0\DeviceShop.Web.pdb
+D:\Projects\DeviceShop\DeviceShop.Web\bin\Debug\netcoreapp2.0\DeviceShop.Core.dll
+D:\Projects\DeviceShop\DeviceShop.Web\bin\Debug\netcoreapp2.0\DeviceShop.Core.pdb
+D:\Projects\DeviceShop\DeviceShop.Web\obj\Debug\netcoreapp2.0\DeviceShop.Web.csprojAssemblyReference.cache
+D:\Projects\DeviceShop\DeviceShop.Web\obj\Debug\netcoreapp2.0\DeviceShop.Web.csproj.CoreCompileInputs.cache
+D:\Projects\DeviceShop\DeviceShop.Web\obj\Debug\netcoreapp2.0\DeviceShop.Web.AssemblyInfoInputs.cache
+D:\Projects\DeviceShop\DeviceShop.Web\obj\Debug\netcoreapp2.0\DeviceShop.Web.AssemblyInfo.cs
+D:\Projects\DeviceShop\DeviceShop.Web\obj\Debug\netcoreapp2.0\DeviceShop.Web.csproj.CopyComplete
+D:\Projects\DeviceShop\DeviceShop.Web\obj\Debug\netcoreapp2.0\DeviceShop.Web.dll
+D:\Projects\DeviceShop\DeviceShop.Web\obj\Debug\netcoreapp2.0\DeviceShop.Web.pdb

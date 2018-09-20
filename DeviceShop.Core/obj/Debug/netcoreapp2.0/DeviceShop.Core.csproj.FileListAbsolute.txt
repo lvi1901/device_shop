@@ -1,0 +1,9 @@
+D:\Projects\DeviceShop\DeviceShop.Core\bin\Debug\netcoreapp2.0\DeviceShop.Core.deps.json
+D:\Projects\DeviceShop\DeviceShop.Core\bin\Debug\netcoreapp2.0\DeviceShop.Core.dll
+D:\Projects\DeviceShop\DeviceShop.Core\bin\Debug\netcoreapp2.0\DeviceShop.Core.pdb
+D:\Projects\DeviceShop\DeviceShop.Core\obj\Debug\netcoreapp2.0\DeviceShop.Core.csproj.CoreCompileInputs.cache
+D:\Projects\DeviceShop\DeviceShop.Core\obj\Debug\netcoreapp2.0\DeviceShop.Core.AssemblyInfoInputs.cache
+D:\Projects\DeviceShop\DeviceShop.Core\obj\Debug\netcoreapp2.0\DeviceShop.Core.AssemblyInfo.cs
+D:\Projects\DeviceShop\DeviceShop.Core\obj\Debug\netcoreapp2.0\DeviceShop.Core.dll
+D:\Projects\DeviceShop\DeviceShop.Core\obj\Debug\netcoreapp2.0\DeviceShop.Core.pdb
+D:\Projects\DeviceShop\DeviceShop.Core\obj\Debug\netcoreapp2.0\DeviceShop.Core.csprojAssemblyReference.cache
