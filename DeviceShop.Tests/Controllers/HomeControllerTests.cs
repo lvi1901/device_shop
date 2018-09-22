@@ -34,7 +34,7 @@ namespace DeviceShop.Tests.Controllers
         }
 
         [Fact]
-        public void Index_View_Returns_ViewModel_Not_Null()
+        public void Index_View_Returns_View_Data_Not_Null()
         {
             // Arrange
             var homeController = new HomeController();
@@ -47,7 +47,7 @@ namespace DeviceShop.Tests.Controllers
         }
 
         [Fact]
-        public void Index_View_Returns_ViewModel_Type()
+        public void Index_View_Returns_View_Data_Type()
         {
             // Arrange
             var homeController = new HomeController();
@@ -60,7 +60,7 @@ namespace DeviceShop.Tests.Controllers
         }
 
         [Fact]
-        public void Index_View_Returns_ViewModel_Data()
+        public void Index_View_Returns_View_Data()
         {
             // Arrange
             var homeController = new HomeController();

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using DeviceShop.Core.Services;
-using DeviceShop.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DeviceShop.Web.Controllers

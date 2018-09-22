@@ -19,13 +19,8 @@ namespace DeviceShop.Web.Components
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var categories = categoryService.GetCategories();
-            var categoryViewModels = categories.Select(c => new CategoryNavigationViewModel
-            {
-                Id = c.Id,
-                Name = c.Name
-            });
 
-            return View(await GetListAsync(categoryViewModels));
+            return View(await GetListAsync(categories));
         }
 
         private Task<List<T>> GetListAsync<T>(IEnumerable<T> list) =>

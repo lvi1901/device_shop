@@ -7,7 +7,7 @@ namespace DeviceShop.Web.Controllers
     {
         public ViewResult Index()
         {
-            ViewBag.Title = "Welcome to Device Shop";
+            ViewData["Title"] = "Welcome to Device Shop";
             return View(new DevicesViewComponentModel
             {
                 PageSize = 8,
