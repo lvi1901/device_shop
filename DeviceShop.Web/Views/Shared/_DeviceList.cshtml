@@ -1,0 +1,35 @@
+﻿
+<div data-bind="foreach: pageData" class="row">
+    <div class="col-sm-3 mb-4">
+        <div class="card">
+            <img class="card-img-top" data-bind="attr:{src: imageUrl}" alt="Card image" style="height:16em;">
+            <div class="card-body min">
+                <h6 class="card-title" data-bind="text: name"></h6>
+                <p class="card-text">Short description</p>
+                <a data-bind="attr:{href: 'Device?deviceId=' + id}" class="btn btn-primary float-left">View</a>
+                <span class="float-right font-weight-bold">
+                    <span data-bind="text: currency"></span>
+                    <span data-bind="text: price"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<nav>
+    <ul class="pagination">
+        <li class="page-item" data-bind="css: { disabled: !hasPreviousPage() }">
+            <span class="page-link" title="Previous" data-bind="click: setPreviousPage">Previous</span>
+        </li>
+
+        <!-- ko foreach: getPages() -->
+        <li class="page-item" data-bind="css: { active: $parent.currentPage() === $data }">
+            <a class="page-link" href="#" data-bind="click: $parent.setCurrentPage, text: $data"></a>
+        </li>
+        <!-- /ko -->
+
+        <li class="page-item" data-bind="css: { disabled: !hasNextPage() }">
+            <a class="page-link" href="#" title="Next" data-bind="click: setNextPage">Next</a>
+        </li>
+    </ul>
+</nav>

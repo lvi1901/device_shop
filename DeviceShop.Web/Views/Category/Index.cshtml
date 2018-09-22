@@ -1,3 +1,9 @@
-﻿@model DeviceShop.Web.ViewModels.DevicesViewComponentModel
+﻿@using Newtonsoft.Json
+@model DeviceShop.Web.ViewModels.DevicesViewComponentModel
 
-@await Component.InvokeAsync("Devices", @Model)
+@section scripts {
+    <script src="~/content/js/knockout-3.4.2.js"></script>
+    <script id="devices" data-value="@JsonConvert.SerializeObject(Model)" src="~/content/js/koDeviceViewModel.js"></script>
+}
+
+@await Html.PartialAsync("~/Views/Shared/_DeviceList.cshtml")

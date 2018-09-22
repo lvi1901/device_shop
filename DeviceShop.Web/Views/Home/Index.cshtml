@@ -1,4 +1,10 @@
-﻿@model DeviceShop.Web.ViewModels.DevicesViewComponentModel
+﻿@using Newtonsoft.Json
+@model DeviceShop.Web.ViewModels.DevicesViewComponentModel
+
+@section scripts {
+    <script src="~/content/js/knockout-3.4.2.js"></script>
+    <script id="devices" data-value="@JsonConvert.SerializeObject(Model)" src="~/content/js/koDeviceViewModel.js"></script>
+}
 
 <div class="container col-xl-10 align-content-lg-center">
     <div id="homePageCarousel" class="carousel slide w-100 mb-4" data-ride="carousel">
@@ -28,6 +34,6 @@
         </a>
     </div>
 
-    @await Component.InvokeAsync("Devices", @Model)
+    @await Html.PartialAsync("~/Views/Shared/_DeviceList.cshtml")
 </div>
 

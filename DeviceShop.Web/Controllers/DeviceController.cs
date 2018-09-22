@@ -15,7 +15,7 @@ namespace DeviceShop.Web.Controllers
             this.deviceService = deviceService;
         }
 
-        public IActionResult Index(Guid deviceId)
+        public ViewResult Index(Guid deviceId)
         {
             var device = deviceService.GetDevice(deviceId);
 

@@ -11,7 +11,7 @@ namespace DeviceShop.Web.Controllers
             ViewData["Title"] = "Category";
             return View(new DevicesViewComponentModel
             {
-                PageSize = 24,
+                PageSize = 12,
                 RequestUrl = $"GetDevicesByCategory?categoryId={categoryId}"
             });
         }

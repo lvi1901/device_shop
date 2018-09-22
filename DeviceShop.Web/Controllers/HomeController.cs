@@ -5,12 +5,12 @@ namespace DeviceShop.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public ViewResult Index()
         {
-            ViewData["Title"] = "Welcome to Device Shop";
+            ViewBag.Title = "Welcome to Device Shop";
             return View(new DevicesViewComponentModel
             {
-                PageSize = 12,
+                PageSize = 8,
                 RequestUrl = "GetPopularDevices"
             });
         }
