@@ -1,12 +1,11 @@
 ﻿
 <div data-bind="foreach: pageData" class="row">
-    <div class="col-sm-3 mb-4">
+    <div class="col-sm-3 mt-4">
         <div class="card">
-            <img class="card-img-top" data-bind="attr:{src: imageUrl}" alt="Card image" style="height:16em;">
+            <img class="card-img-top mx-auto w-75 pt-2" data-bind="attr: {src: imageUrl}" alt="Card image" style="height: 250px;">
             <div class="card-body min">
-                <h6 class="card-title" data-bind="text: name"></h6>
-                <p class="card-text">Short description</p>
-                <a data-bind="attr:{href: 'Device?deviceId=' + id}" class="btn btn-primary float-left">View</a>
+                <h6 class="card-title" data-bind="attr: {title: name}, truncate: name, maxlength: 65"></h6>
+                <a data-bind="attr: {href: 'Device?deviceId=' + id}" class="btn btn-primary float-left">View</a>
                 <span class="float-right font-weight-bold">
                     <span data-bind="text: currency"></span>
                     <span data-bind="text: price"></span>
@@ -16,7 +15,7 @@
     </div>
 </div>
 
-<nav>
+<nav class="mt-4">
     <ul class="pagination">
         <li class="page-item" data-bind="css: { disabled: !hasPreviousPage() }">
             <span class="page-link" title="Previous" data-bind="click: setPreviousPage">Previous</span>

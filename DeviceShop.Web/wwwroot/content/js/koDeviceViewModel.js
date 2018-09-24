@@ -1,4 +1,15 @@
-﻿var DeviceViewModel = function (options) {
+﻿ko.bindingHandlers.truncate = {
+    update: function (element, valueAccessor, allBindings) {
+        var value = valueAccessor(),
+            maxlength = allBindings.get('maxlength') || 40;
+
+        ko.bindingHandlers.text.update(element, function () {
+            return value.length > maxlength ? value.slice(0, maxlength).trim() + "..." : value;
+        });
+    }
+};
+
+var DeviceViewModel = function (options) {
     var self = this;
 
     var firstPage = 1,
