@@ -1,7 +1,7 @@
 ﻿
 namespace DeviceShop.Web.ViewModels
 {
-    public class DevicesViewComponentModel
+    public class DeviceList
     {
         public string RequestUrl { get; set; }
 

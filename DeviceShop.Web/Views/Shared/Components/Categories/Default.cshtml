@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DeviceShop.Core.Entities.CategoryDto>
+﻿@model IEnumerable<DeviceShop.Web.ViewModels.CategoryNavigation>
 
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -7,7 +7,7 @@
     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         @foreach (var category in Model)
         {
-            <a class="dropdown-item" href="Category?categoryId=@category.Id">@category.Name</a>
+            <a class="dropdown-item" href="@category.Url">@category.Name</a>
         }
     </div>
 </li>

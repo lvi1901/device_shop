@@ -8,12 +8,10 @@ namespace DeviceShop.Core.Services
     {
         IEnumerable<DeviceDto> GetDevices();
 
-        DeviceDto GetDevice(Guid deviceId);
-
-        DeviceDto GetCategoryDevice(Guid categoryId, Guid deviceId);
+        DeviceDto GetDeviceById(Guid deviceId);
 
         IEnumerable<DeviceDto> GetPopularDevices();
 
-        IEnumerable<DeviceDto> GetCategoryDevices(Guid categoryId);
+        IEnumerable<DeviceDto> GetDevicesByCategoryId(Guid categoryId);
     }
 }

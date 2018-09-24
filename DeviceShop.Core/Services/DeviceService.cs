@@ -8,40 +8,31 @@ namespace DeviceShop.Core.Services
 {
     public class DeviceService : IDeviceService
     {
-        private readonly ICategoryRepository categoryRepository;
+        private readonly IDeviceRepository deviceRepository;
 
-        public DeviceService(ICategoryRepository categoryRepository)
+        public DeviceService(IDeviceRepository deviceRepository)
         {
-            this.categoryRepository = categoryRepository;
+            this.deviceRepository = deviceRepository;
         }
 
         public IEnumerable<DeviceDto> GetDevices() =>
-            categoryRepository.GetCategories().SelectMany(c => c.Devices);
+            deviceRepository.GetAll();
 
         public IEnumerable<DeviceDto> GetPopularDevices()
         {
-            var popularDevices = new List<DeviceDto>();
-            var categories = categoryRepository.GetCategories();
-
-            foreach (var category in categories)
-            {
-                popularDevices.AddRange(category.Devices.Where(d => d.IsPopular));
-            }
+            var popularDevices = GetDevices().Where(d => d.IsPopular);
 
             return popularDevices.OrderBy(d => d.Name);
         }
 
-        public IEnumerable<DeviceDto> GetCategoryDevices(Guid categoryId)
+        public IEnumerable<DeviceDto> GetDevicesByCategoryId(Guid categoryId)
         {
-            var category = categoryRepository.GetCategory(categoryId);
+            var categoryDevices = GetDevices().Where(d => d.CategoryId == categoryId);
 
-            return category.Devices.OrderBy(d => d.Name);
+            return categoryDevices.OrderBy(d => d.Name);
         }
 
-        public DeviceDto GetDevice(Guid deviceId) =>
-            GetDevices().FirstOrDefault(r => r.Id == deviceId);
-
-        public DeviceDto GetCategoryDevice(Guid categoryId, Guid deviceId) =>
-            GetCategoryDevices(categoryId).FirstOrDefault(r => r.Id == deviceId);
+        public DeviceDto GetDeviceById(Guid deviceId) =>
+            deviceRepository.GetById(deviceId);
     }
 }

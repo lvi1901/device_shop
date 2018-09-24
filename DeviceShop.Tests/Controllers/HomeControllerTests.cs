@@ -8,7 +8,7 @@ namespace DeviceShop.Tests.Controllers
     public class HomeControllerTests
     {
         [Fact]
-        public void Index_View_Returns_ViewResult_Not_Null()
+        public void Index_Returns_Not_Null_View()
         {
             // Arrange
             var homeController = new HomeController();
@@ -21,7 +21,7 @@ namespace DeviceShop.Tests.Controllers
         }
 
         [Fact]
-        public void Index_View_Returns_ViewResult_Type()
+        public void Index_Returns_Correct_View_Type()
         {
             // Arrange
             var homeController = new HomeController();
@@ -34,7 +34,7 @@ namespace DeviceShop.Tests.Controllers
         }
 
         [Fact]
-        public void Index_View_Returns_View_Data_Not_Null()
+        public void Index_Returns_Not_Null_Model()
         {
             // Arrange
             var homeController = new HomeController();
@@ -47,7 +47,7 @@ namespace DeviceShop.Tests.Controllers
         }
 
         [Fact]
-        public void Index_View_Returns_View_Data_Type()
+        public void Index_Returns_Correct_Model_Type()
         {
             // Arrange
             var homeController = new HomeController();
@@ -56,18 +56,18 @@ namespace DeviceShop.Tests.Controllers
             var result = homeController.Index();
 
             // Assert
-            Assert.IsType<DevicesViewComponentModel>(result.Model);
+            Assert.IsType<DeviceList>(result.Model);
         }
 
         [Fact]
-        public void Index_View_Returns_View_Data()
+        public void Index_Returns_Data()
         {
             // Arrange
             var homeController = new HomeController();
 
             // Act
             var result = homeController.Index();
-            var deviceViewModel = result.Model as DevicesViewComponentModel;
+            var deviceViewModel = result.Model as DeviceList;
 
             // Assert
             Assert.Equal(8, deviceViewModel.PageSize);
@@ -75,7 +75,7 @@ namespace DeviceShop.Tests.Controllers
         }
 
         [Fact]
-        public void Index_View_Has_Title()
+        public void Index_Has_Title()
         {
             // Arrange
             var homeController = new HomeController();

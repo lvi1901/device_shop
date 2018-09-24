@@ -17,7 +17,7 @@ namespace DeviceShop.Core.Infrastructure
             base.OnModelCreating(modelBuilder);
             Mapper.Initialize(cfg => {
                 cfg.CreateMap<CategoryItem, CategoryDto>();
-                cfg.CreateMap<DeviceItem, CategoryDto>();
+                cfg.CreateMap<DeviceItem, DeviceDto>();
             });
         }
     }

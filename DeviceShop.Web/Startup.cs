@@ -22,6 +22,7 @@ namespace DeviceShop.Web
         {
             services.AddDbContext<AppDbContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("DeviceShop")));
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IDeviceRepository, DeviceRepository>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IDeviceService, DeviceService>();
             services.AddMvc();

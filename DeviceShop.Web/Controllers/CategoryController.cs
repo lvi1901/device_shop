@@ -6,10 +6,10 @@ namespace DeviceShop.Web.Controllers
 {
     public class CategoryController : Controller
     {
-        public IActionResult Index(Guid categoryId)
+        public ViewResult Index(Guid categoryId)
         {
             ViewData["Title"] = "Category";
-            return View(new DevicesViewComponentModel
+            return View(new DeviceList
             {
                 PageSize = 12,
                 RequestUrl = $"GetDevicesByCategory?categoryId={categoryId}"

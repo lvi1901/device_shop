@@ -17,5 +17,7 @@ namespace DeviceShop.Core.Entities
         public string Currency { get; set; }
 
         public bool IsPopular { get; set; }
+
+        public Guid CategoryId { get; set; }
     }
 }

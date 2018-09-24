@@ -8,7 +8,7 @@ namespace DeviceShop.Web.Controllers
         public ViewResult Index()
         {
             ViewData["Title"] = "Welcome to Device Shop";
-            return View(new DevicesViewComponentModel
+            return View(new DeviceList
             {
                 PageSize = 8,
                 RequestUrl = "GetPopularDevices"

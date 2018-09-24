@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using DeviceShop.Core.Entities;
 using DeviceShop.Core.Services;
 using DeviceShop.Web.Controllers;
@@ -15,88 +14,87 @@ namespace DeviceShop.Tests.Controllers
     {
         #region Index
         [Fact]
-        public void Index_View_Returns_View_Not_Null()
+        public void Index_Returns_Not_Null_View()
         {
             // Arrange
             var deviceServiceMock = new Mock<IDeviceService>();
             var deviceController = new DeviceController(deviceServiceMock.Object);
 
             // Act
-            var result = deviceController.Index(testDevices.First().Id);
+            var result = deviceController.Index(It.IsAny<Guid>());
 
             // Assert
             Assert.NotNull(result);
         }
 
         [Fact]
-        public void Index_View_Returns_View_Type()
+        public void Index_Returns_Correct_View_Type()
         {
             // Arrange
             var deviceServiceMock = new Mock<IDeviceService>();
             var deviceController = new DeviceController(deviceServiceMock.Object);
 
             // Act
-            var result = deviceController.Index(testDevices.First().Id);
+            var result = deviceController.Index(It.IsAny<Guid>());
 
             // Assert
             Assert.IsType<ViewResult>(result);
         }
 
         [Fact]
-        public void Index_View_Returns_Model_Not_Null()
+        public void Index_Returns_Not_Null_Model()
         {
             // Arrange
-            var deviceId = ConvertToGuid(1);
+            var testDevice = testDevices[0];
             var deviceServiceMock = new Mock<IDeviceService>();
-            deviceServiceMock.Setup(d => d.GetDevice(deviceId)).Returns(testDevices.Find(d => d.Id == deviceId));
+            deviceServiceMock.Setup(d => d.GetDeviceById(testDevice.Id)).Returns(testDevice);
 
             var deviceController = new DeviceController(deviceServiceMock.Object);
 
             // Act
-            var result = deviceController.Index(testDevices.First().Id);
+            var result = deviceController.Index(testDevice.Id);
 
             // Assert
             Assert.NotNull(result.Model);
         }
 
         [Fact]
-        public void Index_View_Returns_Model_Type()
+        public void Index_Returns_Correct_Model_Type()
         {
             // Arrange
-            var deviceId = ConvertToGuid(1);
+            var testDevice = testDevices[0];
             var deviceServiceMock = new Mock<IDeviceService>();
-            deviceServiceMock.Setup(d => d.GetDevice(deviceId)).Returns(testDevices.Find(d => d.Id == deviceId));
+            deviceServiceMock.Setup(d => d.GetDeviceById(testDevice.Id)).Returns(testDevice);
 
             var deviceController = new DeviceController(deviceServiceMock.Object);
 
             // Act
-            var result = deviceController.Index(testDevices.First().Id);
+            var result = deviceController.Index(testDevice.Id);
 
             // Assert
             Assert.IsType<DeviceDto>(result.Model);
         }
 
         [Fact]
-        public void Index_View_Returns_Data()
+        public void Index_Returns_Data()
         {
             // Arrange
-            var deviceId = ConvertToGuid(1);
+            var testDevice = testDevices[0];
             var deviceServiceMock = new Mock<IDeviceService>();
-            deviceServiceMock.Setup(d => d.GetDevice(deviceId)).Returns(testDevices.Find(d => d.Id == deviceId));
+            deviceServiceMock.Setup(d => d.GetDeviceById(testDevice.Id)).Returns(testDevice);
 
             var deviceController = new DeviceController(deviceServiceMock.Object);
 
             // Act
-            var result = deviceController.Index(deviceId);
+            var result = deviceController.Index(testDevice.Id);
             var device = result.Model as DeviceDto;
 
             // Assert
-            Assert.Equal(deviceId, device.Id);
-            Assert.Equal("Device 1", device.Name);
+            Assert.Equal("HTC", device.Name);
             Assert.Equal("$", device.Currency);
             Assert.True(device.IsPopular);
             Assert.Equal(5.01m, device.Price);
-            Assert.Equal("Description for Device 1", device.Description);
+            Assert.Equal("Description for HTC", device.Description);
             Assert.Equal("http://image.url.com/1", device.ImageUrl);
         }
 
@@ -108,7 +106,7 @@ namespace DeviceShop.Tests.Controllers
             var deviceController = new DeviceController(deviceServiceMock.Object);
 
             // Act
-            var result = deviceController.Index(testDevices.First().Id);
+            var result = deviceController.Index(It.IsAny<Guid>());
 
             // Assert
             Assert.Equal("Device", result.ViewData["Title"]);
@@ -135,7 +133,7 @@ namespace DeviceShop.Tests.Controllers
         {
             // Arrange
             var deviceServiceMock = new Mock<IDeviceService>();
-            deviceServiceMock.Setup(d => d.GetPopularDevices()).Returns(testDevices.Where(d => d.IsPopular));
+            deviceServiceMock.Setup(d => d.GetPopularDevices()).Returns(testDevices);
 
             var deviceController = new DeviceController(deviceServiceMock.Object);
 
@@ -151,7 +149,7 @@ namespace DeviceShop.Tests.Controllers
         {
             // Arrange
             var deviceServiceMock = new Mock<IDeviceService>();
-            deviceServiceMock.Setup(d => d.GetPopularDevices()).Returns(testDevices.Where(d => d.IsPopular));
+            deviceServiceMock.Setup(d => d.GetPopularDevices()).Returns(testDevices);
 
             var deviceController = new DeviceController(deviceServiceMock.Object);
 
@@ -195,43 +193,25 @@ namespace DeviceShop.Tests.Controllers
         }
 
         [Fact]
-        public void GetPopularDevices_Returns_Data_Count()
-        {
-            // Arrange
-            var deviceServiceMock = new Mock<IDeviceService>();
-            deviceServiceMock.Setup(d => d.GetPopularDevices()).Returns(testDevices.Where(d => d.IsPopular));
-
-            var deviceController = new DeviceController(deviceServiceMock.Object);
-
-            // Act
-            var result = deviceController.GetPopularDevices() as OkObjectResult;
-            var devices = result.Value as IEnumerable<DeviceDto>;
-
-            // Assert
-            Assert.Equal(2, devices.Count());
-        }
-
-        [Fact]
         public void GetPopularDevices_Returns_Data()
         {
             // Arrange
             var deviceServiceMock = new Mock<IDeviceService>();
-            deviceServiceMock.Setup(d => d.GetPopularDevices()).Returns(testDevices.Where(d => d.IsPopular));
+            deviceServiceMock.Setup(d => d.GetPopularDevices()).Returns(testDevices);
 
             var deviceController = new DeviceController(deviceServiceMock.Object);
 
             // Act
             var result = deviceController.GetPopularDevices() as OkObjectResult;
-            var devices = result.Value as IEnumerable<DeviceDto>;
+            var devices = result.Value as List<DeviceDto>;
             var firstDevice = devices.First();
 
             // Assert
-            Assert.Equal(ConvertToGuid(1), firstDevice.Id);
-            Assert.Equal("Device 1", firstDevice.Name);
+            Assert.Equal("HTC", firstDevice.Name);
             Assert.Equal("$", firstDevice.Currency);
             Assert.True(firstDevice.IsPopular);
             Assert.Equal(5.01m, firstDevice.Price);
-            Assert.Equal("Description for Device 1", firstDevice.Description);
+            Assert.Equal("Description for HTC", firstDevice.Description);
             Assert.Equal("http://image.url.com/1", firstDevice.ImageUrl);
         }
         #endregion

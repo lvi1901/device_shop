@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using AutoMapper;
 using DeviceShop.Core.Entities;
 using DeviceShop.Core.Infrastructure;
-using Microsoft.EntityFrameworkCore;
 
 namespace DeviceShop.Core.Repos
 {
@@ -17,13 +14,10 @@ namespace DeviceShop.Core.Repos
         {
             this.appDbContext = appDbContext;
 
-            var categoryItems = appDbContext.Categories.Include(d => d.Devices);
-            categories = Mapper.Map<IEnumerable<CategoryDto>>(categoryItems);
+            categories = Mapper.Map<IEnumerable<CategoryDto>>(appDbContext.Categories);
         }
 
-        public IEnumerable<CategoryDto> GetCategories() => categories;
-
-        public CategoryDto GetCategory(Guid categoryId) =>
-            categories.FirstOrDefault(r => r.Id == categoryId);
+        public IEnumerable<CategoryDto> GetAll() =>
+            categories;
     }
 }

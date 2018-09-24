@@ -14,6 +14,6 @@ namespace DeviceShop.Core.Services
         }
 
         public IEnumerable<CategoryDto> GetCategories() =>
-            categoryRepository.GetCategories();
+            categoryRepository.GetAll();
     }
 }

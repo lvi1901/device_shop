@@ -16,7 +16,7 @@ namespace DeviceShop.Web.Controllers
 
         public ViewResult Index(Guid deviceId)
         {
-            var device = deviceService.GetDevice(deviceId);
+            var device = deviceService.GetDeviceById(deviceId);
 
             ViewData["Title"] = "Device";
             return View(device);
@@ -35,7 +35,7 @@ namespace DeviceShop.Web.Controllers
 
         public IActionResult GetDevicesByCategory(Guid categoryId)
         {
-            var categoryDevices = deviceService.GetCategoryDevices(categoryId);
+            var categoryDevices = deviceService.GetDevicesByCategoryId(categoryId);
 
             if (categoryDevices.Count() == 0)
             {

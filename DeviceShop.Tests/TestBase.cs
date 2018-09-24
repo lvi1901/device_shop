@@ -6,54 +6,64 @@ namespace DeviceShop.Tests
 {
     public class TestBase
     {
+        protected readonly List<CategoryDto> testCategories;
         protected readonly List<DeviceDto> testDevices;
 
         protected TestBase()
         {
+            testCategories = new List<CategoryDto>
+            {
+                new CategoryDto { Id = ConvertToGuid(1), Name = "Smartphones" },
+                new CategoryDto { Id = ConvertToGuid(2), Name = "Laptops" },
+                new CategoryDto { Id = ConvertToGuid(3), Name = "Tablets" }
+            };
+
             testDevices = new List<DeviceDto>
             {
                 new DeviceDto
                 {
-                    Id = ConvertToGuid(1),
-                    Name = "Device 1",
+                    Id = ConvertToGuid(4),
+                    Name = "HTC",
                     Currency = "$",
                     IsPopular = true,
                     Price = 5.01m,
-                    Description = "Description for Device 1",
-                    ImageUrl = "http://image.url.com/1"
+                    Description = "Description for HTC",
+                    ImageUrl = "http://image.url.com/1",
+                    CategoryId = testCategories[0].Id
                 },
                 new DeviceDto
                 {
-                    Id = ConvertToGuid(2),
-                    Name = "Device 2",
+                    Id = ConvertToGuid(5),
+                    Name = "Hewlett Packard",
                     Currency = "$",
                     Price = 11,
-                    Description = "Description for Device 2",
-                    ImageUrl = "http://image.url.com/2"
+                    Description = "Description for Hewlett Packard",
+                    ImageUrl = "http://image.url.com/2",
+                    CategoryId = testCategories[1].Id
                 },
                 new DeviceDto
                 {
-                    Id = ConvertToGuid(3),
-                    Name = "Device 3",
+                    Id = ConvertToGuid(6),
+                    Name = "IPad",
                     Currency = "$",
                     Price = 7.1m,
-                    Description = "Description for Device 3",
-                    ImageUrl = "http://image.url.com/3"
+                    Description = "Description for IPad",
+                    ImageUrl = "http://image.url.com/3",
+                    CategoryId = testCategories[2].Id
                 },
                 new DeviceDto
                 {
-                    Id = ConvertToGuid(4),
-                    Name = "Device 4",
+                    Id = ConvertToGuid(7),
+                    Name = "Samsung Galaxy",
                     Currency = "$",
                     IsPopular = true,
                     Price = 7.1m,
-                    Description = "Description for Device 4",
-                    ImageUrl = "http://image.url.com/4"
+                    Description = "Description for Samsung Galaxy",
+                    ImageUrl = "http://image.url.com/4",
+                    CategoryId = testCategories[0].Id
                 }
             };
         }
-
-        protected readonly static Guid Id = Guid.NewGuid();
 
         protected Guid ConvertToGuid(int id)
         {
